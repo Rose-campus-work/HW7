@@ -1,34 +1,40 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class Pizza {
+class Pizza 
+{
     private final String chain;
     private final String size;
     private final List<String> toppings;
 
-    private Pizza(Builder builder) {
+    private Pizza(Builder builder) 
+    {
         this.chain = builder.chain;
         this.size = builder.size;
         this.toppings = new ArrayList<>(builder.toppings);
     }
 
-    public void eat() {
+    public void eat() 
+    {
         System.out.println("Pizza Chain: " + chain);
         System.out.println("Size: " + size);
         System.out.println("Toppings: " + (toppings.isEmpty() ? "None" : String.join(", ", toppings)));
         System.out.println("----------------------------------------");
     }
 
-    public static class Builder {
+    public static class Builder 
+    {
         private final String chain; 
         private String size;        
         private final List<String> toppings = new ArrayList<>();
 
-        public Builder(String chain) {
+        public Builder(String chain) 
+        {
             this.chain = chain;
         }
 
-        public Builder size(String size) {
+        public Builder size(String size) 
+        {
             this.size = size;
             return this;
         }
@@ -50,9 +56,11 @@ class Pizza {
         public Builder addSpicyFork() { toppings.add("Spicy Pork"); return this; }
         public Builder addHamAndPineapple() { toppings.add("Ham and Pineapple"); return this; }
 
-        public Pizza build() {
-            if (this.size == null || this.size.isEmpty()) {
-                throw new IllegalStateException("Size is required!");
+        public Pizza build() 
+        {
+            if (this.size == null || this.size.isEmpty()) 
+            {
+                throw new IllegalStateException("Size is required");
             }
             return new Pizza(this);
         }
@@ -60,8 +68,10 @@ class Pizza {
 }
 
 
-public class MainPizza {
-    public static void main(String[] args) {
+public class MainPizza 
+{
+    public static void main(String[] args) 
+    {
         
         // PART 1: Pizza Hut - 3 Pizzas (3, 6, 9 Toppings)
         System.out.println("=== PART 1: PIZZA HUT ===\n");
